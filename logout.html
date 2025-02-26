@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Homepage</h1>
+        <button onclick="logout()">Logout</button>
+    </header>
+    <p>You are now logged in!</p>
+
+    <script>
+        function logout() {
+            localStorage.removeItem("isLoggedIn"); // Remove login session
+            window.location.href = "index.html"; // Redirect to login page
+        }
+
+        // Redirect to login if not logged in
+        window.onload = function () {
+            let isLoggedIn = localStorage.getItem("isLoggedIn");
+            if (!isLoggedIn) {
+                window.location.href = "index.html"; 
+            }
+        };
+    </script>
+</body>
+</html>
